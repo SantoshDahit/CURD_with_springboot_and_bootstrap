@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Delete Student</h5>
+                    <button type="button" class="close d-none d-md-block" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="card-body">
+                    <form th:method="put" th:action="@{/admin/delete}" th:object="${student}" class="card-body">
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" th:field="*{id}" th:value="${student.id}" id="id">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" th:field="*{name}" th:value="${student.getName()}" id="name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" th:field="*{lastName}" th:value="${student.getLastName()}" id="lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="degree">Degree</label>
+                            <input type="text" class="form-control" th:field="*{degree}" th:value="${student.getDegree()}" id="degree" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" th:field="*{password}"th:value="${student.getPassword}" id="password" >
+                        </div>
+                        <div class="card-header d-flex justify-content-end py-3">
+                            <button type="submit" class="btn btn-secondary">Close</button>
+
+                            <span> <button type="submit" class="btn btn-primary">Delete</button> </span>
+                        </div>
+                    </form>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
